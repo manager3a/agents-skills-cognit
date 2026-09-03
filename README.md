@@ -26,6 +26,20 @@ Proceso estándar de Cognit para diseñar y construir *business websites* premiu
   - [`react-stack.md`](skills/pd01-business-website/references/react-stack.md) — lineamientos de stack técnico.
   - [`security-standards.md`](skills/pd01-business-website/references/security-standards.md) — estándares de seguridad para el frontend.
 
+### 🛒 `pd02-tienda-online`
+
+Proceso estándar de Cognit para diseñar y construir *tiendas online* (e-commerce) para clientes de PYME: arquitectura JAMstack desplegada en Vercel, con un catálogo que el propio cliente puede actualizar sin depender de Cognit (vía automatización con n8n u otra herramienta, conectada a la fuente de datos que el cliente ya usa: hoja de cálculo, carpeta de archivos o base de datos).
+
+- **Input:** brief del cliente (tier básica/profesional/avanzada y fuente de datos del catálogo).
+- **Output:** prototipo y, posteriormente, la tienda online completa, siguiendo las fases fijas de la agencia (prototipo → desarrollo completo → ajustes finales).
+- **Cuándo usarlo:** siempre que se cree, diseñe o avance de fase una tienda online/e-commerce para un cliente de Cognit.
+- 📄 [`skills/pd02-tienda-online/SKILL.md`](skills/pd02-tienda-online/SKILL.md)
+- Referencias incluidas:
+  - [`arquitectura-tiers.md`](skills/pd02-tienda-online/references/arquitectura-tiers.md) — arquitectura técnica por tier (básica/profesional/avanzada).
+  - [`extract-brief-base.md`](skills/pd02-tienda-online/references/extract-brief-base.md) — cómo se construye el brief de entrada.
+  - [`security-ecommerce.md`](skills/pd02-tienda-online/references/security-ecommerce.md) — estándares de seguridad específicos de e-commerce.
+  - [`security-standards.md`](skills/pd02-tienda-online/references/security-standards.md) — estándares de seguridad generales del frontend.
+
 ## Flujo de trabajo (Website Premium)
 
 ```
@@ -47,11 +61,18 @@ Deploy en Vercel vía GitHub
 skills/
 ├── pd01-extract-brief/
 │   └── SKILL.md
-└── pd01-business-website/
+├── pd01-business-website/
+│   ├── SKILL.md
+│   └── references/
+│       ├── pd01-extract-brief.md
+│       ├── react-stack.md
+│       └── security-standards.md
+└── pd02-tienda-online/
     ├── SKILL.md
     └── references/
-        ├── pd01-extract-brief.md
-        ├── react-stack.md
+        ├── arquitectura-tiers.md
+        ├── extract-brief-base.md
+        ├── security-ecommerce.md
         └── security-standards.md
 ```
 
