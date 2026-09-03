@@ -26,6 +26,15 @@ Proceso estándar de Cognit para diseñar y construir *business websites* premiu
   - [`react-stack.md`](skills/pd01-business-website/references/react-stack.md) — lineamientos de stack técnico.
   - [`security-standards.md`](skills/pd01-business-website/references/security-standards.md) — estándares de seguridad para el frontend.
 
+### 🧩 `pd02-extract-brief`
+
+Extrae automáticamente la información de un cliente desde el cuestionario de respuestas en Google Drive y la convierte en el brief de entrada estandarizado que necesita `pd02-tienda-online`.
+
+- **Input:** nombre exacto del cliente/empresa tal como aparece en el cuestionario de Tienda Online.
+- **Output:** brief en formato Markdown con todos los campos normalizados, listo para pasar al siguiente skill.
+- **Cuándo usarlo:** es el paso obligatorio previo a iniciar el desarrollo de una tienda online para un nuevo cliente.
+- 📄 [`skills/pd02-extract-brief/SKILL.md`](skills/pd02-extract-brief/SKILL.md)
+
 ### 🛒 `pd02-tienda-online`
 
 Proceso estándar de Cognit para diseñar y construir *tiendas online* (e-commerce) para clientes de PYME: arquitectura JAMstack desplegada en Vercel, con un catálogo que el propio cliente puede actualizar sin depender de Cognit (vía automatización con n8n u otra herramienta, conectada a la fuente de datos que el cliente ya usa: hoja de cálculo, carpeta de archivos o base de datos).
@@ -55,6 +64,21 @@ pd01-business-website  →  prototipo → desarrollo completo → ajustes finale
 Deploy en Vercel vía GitHub
 ```
 
+## Flujo de trabajo (Tienda Online)
+
+```
+Cuestionario de cliente (Google Drive)
+        │
+        ▼
+pd02-extract-brief  →  genera el brief estandarizado
+        │
+        ▼
+pd02-tienda-online  →  prototipo → desarrollo completo → ajustes finales
+        │
+        ▼
+Deploy en Vercel vía GitHub + catálogo administrable por el cliente
+```
+
 ## Estructura del repositorio
 
 ```
@@ -67,6 +91,8 @@ skills/
 │       ├── pd01-extract-brief.md
 │       ├── react-stack.md
 │       └── security-standards.md
+├── pd02-extract-brief/
+│   └── SKILL.md
 └── pd02-tienda-online/
     ├── SKILL.md
     └── references/
