@@ -1,16 +1,6 @@
 ---
 name: pd01-business-website
-description: >-
-  PD01 - Business Website. Proceso estándar de Cognit para diseñar y construir
-  business websites premium (HTML/CSS/JS estático, arquitectura JAMstack,
-  listo para deploy en Vercel vía GitHub). Úsalo siempre que el usuario pida
-  crear, diseñar, prototipar o construir el sitio web de un cliente de Cognit,
-  cuando mencione un "website premium", una "landing" o "sitio corporativo"
-  para un cliente, cuando pegue o adjunte las respuestas de un
-  cuestionario/brief de cliente para un sitio web, o cuando pida avanzar de
-  fase (prototipo, luego desarrollo completo, luego ajustes finales) en un
-  proyecto de website ya iniciado. Este skill es el método fijo de la agencia
-  y no varía de cliente a cliente, solo cambia el input del brief.
+description: "PD01 - Business Website. Proceso estándar de Cognit para diseñar y construir business websites premium (HTML/CSS/JS estático, arquitectura JAMstack, listo para deploy en Vercel vía GitHub). Úsalo siempre que el usuario pida crear, diseñar, prototipar o construir el sitio web de un cliente de Cognit, cuando mencione un \"website premium\", una \"landing\" o \"sitio corporativo\" para un cliente, cuando pegue o adjunte las respuestas de un cuestionario/brief de cliente para un sitio web, o cuando pida avanzar de fase (prototipo, luego desarrollo completo, luego ajustes finales) en un proyecto de website ya iniciado. Este skill es el método fijo de la agencia y no varía de cliente a cliente, solo cambia el input del brief."
 ---
 
 # PD01 - Business Website — Método Cognit
@@ -43,23 +33,33 @@ El entregable siempre son estos tres archivos:
 
 No desarrolles el website completo de inmediato. Este flujo existe para que el cliente valide dirección visual antes de que se invierta el esfuerzo completo de construcción — saltárselo genera retrabajo y desgasta la relación con el cliente. No avances de fase sin que el usuario lo indique explícitamente.
 
-### Fase 1 — Prototipo estructural para aprobación del cliente
+### Fase 1 — Prototipo con branding completo para aprobación del cliente
 
-Este es un borrador funcional de revisión, no el sitio final. Su único propósito es que el cliente valide distribución visual, navegación, paleta de colores y personalización de marca. En esta fase **no apliques todavía** los estándares completos de arquitectura, seguridad y compatibilidad — eso llega en la Fase 2, una vez aprobado el rumbo visual.
+Este es un prototipo funcional de revisión, no el sitio final. Su propósito es que el cliente valide la identidad visual completa, la navegación, el tono y la dirección de diseño — y para lograrlo, **el branding del cliente debe aplicarse al 100% desde esta fase**: paleta de colores exacta, tipografías, espaciados, jerarquía visual, tono del copy y estilo de los componentes. El prototipo no debe verse como un wireframe ni como un sitio genérico con colores de marca pintados encima — debe verse como el sitio real, solo que con contenido incompleto en las secciones secundarias.
 
-Genera únicamente:
+Lo que varía entre Fase 1 y Fase 2 **no es la calidad visual ni el branding**, sino la completitud del contenido y la implementación de los estándares de seguridad. En esta fase **no apliques todavía** los estándares completos de arquitectura, seguridad y compatibilidad — eso llega en la Fase 2, una vez aprobado el rumbo visual.
 
-- Navbar con logo (basado en el nombre de la empresa y sus colores de marca), menú con todas las páginas del brief, y botón CTA principal
-- Hero section con headline, subheadline y CTA, usando el tono de comunicación y colores de marca del cliente
-- Footer básico con nombre de empresa, links del menú y aviso legal
-- Paleta de colores, tipografía y estilo visual aplicados globalmente según el estilo visual y colores de marca del brief
-- El resto de secciones/páginas deben existir como links funcionales en el menú, con contenido placeholder mínimo (ej. `<section id="servicios"><p>Contenido próximamente</p></section>`)
+Genera las siguientes secciones con branding y diseño completo:
+
+- **Navbar:** logo tipográfico o símbolo (basado en el nombre y colores exactos de marca), menú con todas las páginas del brief, botón CTA principal estilizado. Sticky, con comportamiento al hacer scroll.
+- **Hero section:** headline principal, subheadline y CTA, con fondo, tipografía, colores y estilo visual completamente aplicados según el brief. Imagen o elemento visual de apoyo (usar `https://placehold.co` con los colores de marca o SVG inline temático).
+- **Sección de servicios/propuesta de valor:** cards o bloques con íconos SVG inline, títulos reales del brief, y descripciones breves pero redactadas con el tono del cliente — no texto placeholder.
+- **Sección de prueba social o diferencial:** testimonios ficticios representativos del sector, logotipos de clientes (placeholders con estilo de marca), o una sección de estadísticas/números clave — lo que aplique mejor al tipo de negocio según el brief.
+- **Footer:** nombre de empresa, links del menú, datos de contacto básicos, aviso legal — con el estilo y paleta de marca completos.
+- **El resto de páginas/secciones del brief** deben existir como anchors o páginas con un bloque visible de "Próximamente" estilizado con el branding del cliente (no un `<p>` genérico), para que el cliente pueda navegar el sitio y entender la estructura completa.
+
+Aplica globalmente desde esta fase:
+- Variables CSS con la paleta exacta de colores del brief
+- Tipografías indicadas en el brief (o la elección profesional más adecuada al sector si no se especificaron), cargadas vía Google Fonts o definidas como system fonts
+- Espaciados, border-radius, sombras y estilo de componentes consistentes con el estilo visual del brief
+- Animaciones de entrada suaves (fade-in, slide-up) en las secciones principales para dar sensación de acabado premium
+- Responsive básico: que se vea bien en mobile y desktop, aunque el ajuste fino viene en Fase 2
 
 Entrega `index.html`, `styles.css`, `script.js` listos para deploy inmediato, con estructura de carpetas compatible con GitHub + Vercel (archivos en raíz del repo).
 
 Al terminar, detente y muestra:
 
-> *"✅ Fase 1 lista. Los 3 archivos están listos para subir al repositorio GitHub conectado a Vercel. Una vez que el cliente apruebe el contenido de la URL desplegada, indícame que sigo con la Fase 2 para desarrollar el website completo."*
+> *"✅ Fase 1 lista. Los 3 archivos están listos para subir al repositorio GitHub conectado a Vercel. El prototipo ya refleja el branding completo del cliente para que pueda validar la dirección visual en la URL desplegada. Una vez que el cliente apruebe, indícame que sigo con la Fase 2 para desarrollar el contenido completo de todas las secciones y aplicar los estándares de seguridad y compatibilidad.*"
 
 ### Fase 2 — Desarrollo completo (solo tras confirmación explícita)
 
@@ -154,3 +154,4 @@ En Fase 2 y Fase 3, aplica siempre el estándar completo de seguridad de Cognit 
 - No incluyas backend ni bases de datos — solo frontend estático.
 - No cargues ningún recurso externo por `http://` — exclusivamente `https://`.
 - No omitas ninguna regla de `references/security-standards.md` en Fase 2/3, sin importar el tipo de sitio o cliente.
+- **En Fase 1, no entregues un wireframe básico con colores de marca encima.** El branding debe estar aplicado completamente desde el primer entregable — el cliente debe poder ver el sitio y reconocer su identidad visual de inmediato.
