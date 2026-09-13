@@ -55,15 +55,48 @@ Aplica globalmente desde esta fase:
 - Animaciones de entrada suaves (fade-in, slide-up) en las secciones principales para dar sensación de acabado premium
 - Responsive básico: que se vea bien en mobile y desktop, aunque el ajuste fino viene en Fase 2
 
-Entrega `index.html`, `styles.css`, `script.js` listos para deploy inmediato, con estructura de carpetas compatible con GitHub + Vercel (archivos en raíz del repo).
+Entrega `index.html`, `styles.css`, `script.js` listos para deploy inmediato, con estructura de carpetas compatible con GitHub + Vercel (archivos en raíz del repo), más:
+
+- **`README.md`:** crea este archivo en la raíz del repo con la información básica del proyecto: nombre del cliente, URL del sitio en Vercel, descripción breve, estructura de carpetas y estado actual *(Fase 1 — Prototipo en revisión del cliente)*.
 
 Al terminar, detente y muestra:
 
-> *"✅ Fase 1 lista. Los 3 archivos están listos para subir al repositorio GitHub conectado a Vercel. El prototipo ya refleja el branding completo del cliente para que pueda validar la dirección visual en la URL desplegada. Una vez que el cliente apruebe, indícame que sigo con la Fase 2 para desarrollar el contenido completo de todas las secciones y aplicar los estándares de seguridad y compatibilidad.*"
+> *"✅ Fase 1 lista. Los 3 archivos y el README.md están listos para subir al repositorio GitHub conectado a Vercel. El prototipo ya refleja el branding completo del cliente para que pueda validar la dirección visual en la URL desplegada. Una vez que el cliente apruebe, indícame que sigo con la Fase 2 para desarrollar el contenido completo de todas las secciones y aplicar los estándares de seguridad y compatibilidad."*
 
 ### Fase 2 — Desarrollo completo (solo tras confirmación explícita)
 
-Cuando el usuario confirme que puedes avanzar, desarrolla el website completo según todas las especificaciones del brief, aplicando ahora sí toda la arquitectura, seguridad y compatibilidad descritas más abajo y en `references/security-standards.md`.
+Cuando el usuario confirme que puedes avanzar, sigue este orden:
+
+#### Paso previo obligatorio: revisión de assets del repo
+
+Antes de escribir una línea de código del sitio completo, revisa los recursos del repositorio del cliente en las siguientes rutas. Estos assets tienen prioridad sobre cualquier suposición genérica o lo indicado en el brief cuando difieren.
+
+**Branding — `Assets/Branding`**
+Revisa las siguientes carpetas (puede que existan o no — si están vacías o ausentes, aplica el branding definido en el brief):
+
+- **BRANDBOOK:** guía general de marca, valores visuales e instrucciones de uso de la identidad
+- **MOODBOARD:** referencias de estilo y atmósfera visual del proyecto
+- **PALETA DE COLORES:** valores exactos de marca (hex, RGB) — estos tienen prioridad sobre los colores del brief si difieren
+
+La combinación de colores, contrastes y reglas de uso deben respetar las instrucciones específicas de cada documento, no solo los valores aislados.
+
+**Logos, imagotipos e íconos — `Assets/Branding/FORMATO SVG (WEB)`**
+Para incorporar el logo o cualquier ícono de marca al sitio, consulta esta carpeta primero (puede que haya archivos o no). Si el usuario no ha indicado exactamente qué archivo usar, pregúntalo antes de continuar. Para favicon o usos donde se necesite imagen raster, revisa `Assets/Branding/FORMATO RGB (DIGITAL)` con los archivos PNG/JPG correspondientes (puede que haya archivos o no).
+
+**Tipografía — `Assets/Branding/TIPOGRAFIA`**
+Usa las fuentes exactas provistas en esta carpeta (puede que haya archivos o no). Si hay archivos, incorpóralos vía `@font-face` en el CSS. Si la carpeta está vacía o no existe, elige una fuente de Google Fonts legible y coherente con el sector y tono del cliente — no asumas una fuente genérica, elige con criterio editorial.
+
+**Copy e información — `Assets/Textos`**
+Antes de redactar el contenido del sitio, revisa si hay documentos en esta carpeta (puede que haya archivos o no). Si los hay, úsalos como fuente de información y transfórmalos en copy persuasivo orientado a conversión — no los copies literalmente. Si la carpeta está vacía o no existe, redacta el copy a partir del contexto del brief.
+
+**Recursos multimedia — `Assets/Imagenes` y `Assets/Videos`**
+Estas carpetas pueden contener imágenes y videos del cliente. Solo incorpóralos al sitio si el usuario lo indica expresamente — no los asumas disponibles ni los incluyas por defecto. Si el usuario menciona un archivo específico, úsalo; de lo contrario, construye el sitio con placeholders estándar (`https://placehold.co`) hasta que se indique lo contrario.
+
+#### Desarrollo del sitio completo
+
+Con los assets revisados, desarrolla el website completo según todas las especificaciones del brief, aplicando toda la arquitectura, seguridad y compatibilidad descritas más abajo y en `references/security-standards.md`.
+
+Antes de entregar, actualiza el `README.md` con el estado final del proyecto: páginas implementadas, instrucciones de deploy, dependencias externas configuradas (formularios, analytics, etc.) y notas de mantenimiento relevantes para el cliente.
 
 ### Fase 3 — Ajustes finales y entrega (solo tras revisión del sitio completo)
 
@@ -104,6 +137,7 @@ Cuando esto ocurra, avisa al usuario que ese componente requiere migrar el proye
 ├── services.html
 ├── contact.html
 ├── 404.html
+├── README.md
 ├── /assets
 │   ├── /images
 │   ├── /icons
@@ -155,3 +189,4 @@ En Fase 2 y Fase 3, aplica siempre el estándar completo de seguridad de Cognit 
 - No cargues ningún recurso externo por `http://` — exclusivamente `https://`.
 - No omitas ninguna regla de `references/security-standards.md` en Fase 2/3, sin importar el tipo de sitio o cliente.
 - **En Fase 1, no entregues un wireframe básico con colores de marca encima.** El branding debe estar aplicado completamente desde el primer entregable — el cliente debe poder ver el sitio y reconocer su identidad visual de inmediato.
+- **En Fase 2, no construyas el sitio sin revisar primero los assets del repo** (`Assets/Branding`, `Assets/Textos`). Los recursos del repo tienen prioridad sobre suposiciones genéricas.
