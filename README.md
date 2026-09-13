@@ -49,6 +49,16 @@ Proceso estándar de Cognit para diseñar y construir *tiendas online* (e-commer
   - [`security-ecommerce.md`](skills/pd02-tienda-online/references/security-ecommerce.md) — estándares de seguridad específicos de e-commerce.
   - [`security-standards.md`](skills/pd02-tienda-online/references/security-standards.md) — estándares de seguridad generales del frontend.
 
+### 🎨 `ui-ux-pro-max`
+
+Inteligencia de diseño UI/UX de terceros ([nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) con una base de datos local consultable: 79 estilos visuales (50 activos), 192 paletas de color con perfiles de razonamiento, 74 combinaciones tipográficas, 119 guías de UX, 105 íconos curados, 17 presets de animación GSAP, 25 tipos de gráficos y 22 stacks tecnológicos (React, Next.js, Vue, Svelte, Astro, Flutter, SwiftUI, Laravel, entre otros).
+
+- **Input:** una consulta en lenguaje natural sobre la necesidad de diseño (tipo de producto, estilo, componente o problema de UX), junto con el stack técnico del proyecto cuando aplique.
+- **Output:** recomendaciones concretas y verificables — sistema de diseño completo (paleta, tipografía, layout, efectos), o guía puntual de accesibilidad, interacción, tipografía, color, animación, navegación o gráficos, con opción de persistir el sistema de diseño (`MASTER.md` + overrides por página) para reutilizarlo entre sesiones.
+- **Cuándo usarlo:** al diseñar, construir o revisar cualquier interfaz — páginas nuevas, componentes, sistemas de diseño, accesibilidad, interacción, layout responsive, tipografía, color o visualización de datos — para cualquier proyecto de Cognit (no específico de un proceso PD01/PD02).
+- 📄 [`skills/ui-ux-pro-max/SKILL.md`](skills/ui-ux-pro-max/SKILL.md)
+- Incluye: `scripts/search.py` (motor de búsqueda local), `data/` (catálogos CSV/JSON), y `references/quick-reference.md` + `references/pro-rules.md` (guías detalladas y checklist de pre-entrega).
+
 ## Flujo de trabajo (Website Premium)
 
 ```
@@ -93,13 +103,18 @@ skills/
 │       └── security-standards.md
 ├── pd02-extract-brief/
 │   └── SKILL.md
-└── pd02-tienda-online/
+├── pd02-tienda-online/
+│   ├── SKILL.md
+│   └── references/
+│       ├── arquitectura-tiers.md
+│       ├── extract-brief-base.md
+│       ├── security-ecommerce.md
+│       └── security-standards.md
+└── ui-ux-pro-max/
     ├── SKILL.md
-    └── references/
-        ├── arquitectura-tiers.md
-        ├── extract-brief-base.md
-        ├── security-ecommerce.md
-        └── security-standards.md
+    ├── data/           # catálogos de estilos, paletas, tipografía, íconos, stacks, etc.
+    ├── references/      # quick-reference.md, pro-rules.md
+    └── scripts/         # search.py y motor de búsqueda local
 ```
 
 ## Convenciones
