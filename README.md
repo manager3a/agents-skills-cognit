@@ -49,6 +49,17 @@ Proceso estándar de Cognit para diseñar y construir *tiendas online* (e-commer
   - [`security-ecommerce.md`](skills/pd02-tienda-online/references/security-ecommerce.md) — estándares de seguridad específicos de e-commerce.
   - [`security-standards.md`](skills/pd02-tienda-online/references/security-standards.md) — estándares de seguridad generales del frontend.
 
+### 🔬 `is01-extract-brief`
+
+Toma la respuesta de un cliente en el cuestionario de Investigación Sintética (BehaviorSim) y genera los dos insumos que se cargan en **Mirofish** para correr la simulación con agentes artificiales.
+
+- **Input:** nombre exacto de la empresa/proyecto tal como aparece en el cuestionario *Respuestas Investigación Sintética - Behaviour Sim* y, opcionalmente, los documentos o textos que el cliente envió como insumo.
+- **Output:** dos archivos Markdown guardados en la carpeta de Google Drive que indique el usuario:
+  - `Semilla de la realidad - [Nombre].md` — la realidad del cliente (Modo A: solo documentos adjuntos convertidos a Markdown; Modo B: resumen de las respuestas del cuestionario).
+  - `Instrucción - [Nombre].md` — el prompt principal de la simulación (150–400 palabras) que responde Quién, Qué, Cuáles, Dónde y Rondas.
+- **Cuándo usarlo:** cada vez que llega una nueva respuesta de cliente al cuestionario de Investigación Sintética y se quiere preparar la simulación en Mirofish.
+- 📄 [`skills/is01-extract-brief/SKILL.md`](skills/is01-extract-brief/SKILL.md)
+
 ### 🎨 `ui-ux-pro-max`
 
 Inteligencia de diseño UI/UX de terceros ([nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)) con una base de datos local consultable: 79 estilos visuales (50 activos), 192 paletas de color con perfiles de razonamiento, 74 combinaciones tipográficas, 119 guías de UX, 105 íconos curados, 17 presets de animación GSAP, 25 tipos de gráficos y 22 stacks tecnológicos (React, Next.js, Vue, Svelte, Astro, Flutter, SwiftUI, Laravel, entre otros).
@@ -89,10 +100,24 @@ pd02-tienda-online  →  prototipo → desarrollo completo → ajustes finales
 Deploy en Vercel vía GitHub + catálogo administrable por el cliente
 ```
 
+## Flujo de trabajo (Investigación Sintética)
+
+```
+Cuestionario de Investigación Sintética (Google Drive)
+        │   (+ documentos del cliente, si los hay)
+        ▼
+is01-extract-brief  →  semilla de la realidad + instrucción de simulación (.md en Drive)
+        │
+        ▼
+Simulación en Mirofish  →  reporte de resultados
+```
+
 ## Estructura del repositorio
 
 ```
 skills/
+├── is01-extract-brief/
+│   └── SKILL.md
 ├── pd01-extract-brief/
 │   └── SKILL.md
 ├── pd01-business-website/
@@ -120,7 +145,7 @@ skills/
 ## Convenciones
 
 - Cada skill vive en `skills/<nombre-skill>/` con un `SKILL.md` como punto de entrada (metadata + instrucciones) y, opcionalmente, una carpeta `references/` con material de apoyo.
-- Los nombres de skill siguen el prefijo del proceso al que pertenecen (`PD01` = línea de Business Website), facilitando agrupar futuras fases o variantes.
+- Los nombres de skill siguen el prefijo del proceso al que pertenecen (`PD01` = Business Website, `PD02` = Tienda Online, `IS01` = Investigación Sintética), facilitando agrupar futuras fases o variantes.
 - Estos skills son el método fijo de la agencia: no varían de cliente a cliente, solo cambia el input (el brief).
 
 ## Contribuir
