@@ -51,13 +51,17 @@ Proceso estándar de Cognit para diseñar y construir *tiendas online* (e-commer
 
 ### 🔬 `is01-extract-brief`
 
-Toma la respuesta de un cliente en el cuestionario de Investigación Sintética (BehaviorSim) y genera los dos insumos que se cargan en **Mirofish** para correr la simulación con agentes artificiales.
+Prepara los insumos de una simulación en **Mirofish** a partir de la respuesta de un cliente al cuestionario de Investigación Sintética (BehaviorSim). Funciona en **dos fases separadas por una revisión humana**, porque las respuestas del formulario suelen llegar incompletas o ambiguas y el analista las valida con el cliente antes de invertir tiempo en la simulación.
 
-- **Input:** nombre exacto de la empresa/proyecto tal como aparece en el cuestionario *Respuestas Investigación Sintética - Behaviour Sim* y, opcionalmente, los documentos o textos que el cliente envió como insumo.
-- **Output:** dos archivos Markdown guardados en la carpeta de Google Drive que indique el usuario:
-  - `Semilla de la realidad - [Nombre].md` — la realidad del cliente (Modo A: solo documentos adjuntos convertidos a Markdown; Modo B: resumen de las respuestas del cuestionario).
-  - `Instrucción - [Nombre].md` — el prompt principal de la simulación (150–400 palabras) que responde Quién, Qué, Cuáles, Dónde y Rondas.
-- **Cuándo usarlo:** cada vez que llega una nueva respuesta de cliente al cuestionario de Investigación Sintética y se quiere preparar la simulación en Mirofish.
+- **Fase 1 — Extracción para revisión:**
+  - **Input:** nombre exacto de la empresa/proyecto tal como aparece en el cuestionario *Respuestas Investigación Sintética - Behaviour Sim*.
+  - **Output:** `is01-extract-brief [Nombre].md` guardado en la carpeta de Google Drive que indique el usuario, con todas las respuestas del cliente de forma textual. El analista lo corrige o completa con el cliente y la skill se detiene ahí.
+- **Fase 2 — Insumos para Mirofish:**
+  - **Input:** el archivo `is01-extract-brief [Nombre].md` revisado (pasa a ser la única fuente de verdad) y, opcionalmente, los documentos que el cliente envió como insumo.
+  - **Output:** dos archivos Markdown guardados en la misma carpeta de Drive:
+    - `Semilla de la realidad - [Nombre].md` — la realidad del cliente (Modo A: solo documentos del cliente convertidos a Markdown; Modo B: resumen de las respuestas revisadas).
+    - `Instrucción - [Nombre].md` — el prompt principal de la simulación (150–400 palabras) que responde Quién, Qué, Cuáles, Dónde y Rondas.
+- **Cuándo usarlo:** cada vez que llega una nueva respuesta al cuestionario de Investigación Sintética (Fase 1), y de nuevo cuando el analista entrega el archivo de extracción revisado (Fase 2).
 - 📄 [`skills/is01-extract-brief/SKILL.md`](skills/is01-extract-brief/SKILL.md)
 
 ### 🎨 `ui-ux-pro-max`
@@ -104,9 +108,15 @@ Deploy en Vercel vía GitHub + catálogo administrable por el cliente
 
 ```
 Cuestionario de Investigación Sintética (Google Drive)
+        │
+        ▼
+is01-extract-brief · Fase 1  →  is01-extract-brief [Nombre].md en Drive
+        │
+        ▼
+Revisión del analista con el cliente (corrige/completa el .md)
         │   (+ documentos del cliente, si los hay)
         ▼
-is01-extract-brief  →  semilla de la realidad + instrucción de simulación (.md en Drive)
+is01-extract-brief · Fase 2  →  semilla de la realidad + instrucción de simulación (.md en Drive)
         │
         ▼
 Simulación en Mirofish  →  reporte de resultados
